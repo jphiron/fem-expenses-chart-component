@@ -6,27 +6,58 @@ const Container = styled.div`
   display: grid;
   grid-template-columns: repeat(7, minmax(0, 1fr));
   grid-template-rows: 9fr 1fr;
-  grid-gap: .5rem 1rem;
+  grid-gap: 0.5rem 1rem;
   align-items: end;
   justify-items: center;
   padding-bottom: 1.5rem;
-  border-bottom: 1px solid hsl(27,66%,92%);
+  border-bottom: 1px solid hsl(27, 66%, 92%);
 
   @media screen and (max-width: 440px) {
-    grid-gap: .75rem;
+    grid-gap: 0.75rem;
+  }
+`;
+
+const Amount = styled.span`
+  position: absolute;
+  top: -2.5rem;
+  font-weight: 700;
+  color: hsl(33, 100%, 98%);
+  background-color: hsl(25, 47%, 15%);
+  padding: .33rem;
+  border-radius: 5px;
+  opacity: 0;
+  transition: all .15s;
+
+  @media screen and (max-width: 460px) {
+    top: -2.25rem;
+    font-size: .8rem;
   }
 `;
 
 const Bar = styled.div`
-  height: ${({percentage}) => `calc(${percentage}%)`};
+  display: flex;
+  justify-content: center;
+  height: ${({ percentage }) => `calc(${percentage}%)`};
   width: 100%;
-  background-color: ${({percentage}) => percentage === 100 ? "hsl(186, 34%, 60%)" : "hsl(10, 79%, 65%)"};
+  background-color: ${({ percentage }) =>
+    percentage === 100 ? "hsl(186, 34%, 60%)" : "hsl(10, 79%, 65%)"};
   border-radius: 5px;
-  /* margin-bottom: 1rem; */
-  /* padding-bottom: 1rem; */
+  cursor: pointer;
+  position: relative;
+
+  transition: all .15s ease-out;
+
+  &:hover {
+    background-color: ${({ percentage }) =>
+    percentage === 100 ? "hsl(186, 34%, 75%)" : "hsl(10, 79%, 75%)"};
+
+    & ${Amount} {
+      opacity: 1;
+    }
+  }
 `;
 
-const Label = styled.span`
+const Day = styled.span`
   /* padding-top: 1rem; */
   color: hsl(28, 10%, 53%);
 `;
@@ -62,23 +93,17 @@ const Chart = () => {
   return (
     <Container>
       {data.map(data => {
-      return (
-        // <Column>
-          <Bar percentage={Math.round(((data.amount / max) * 100))} />
-          // <Label>{data.day}</Label>z
-        // </Column>
-      )
-    })}
+        return (
+          <Bar percentage={Math.round((data.amount / max) * 100)}>
+            <Amount>£{data.amount}</Amount>
+          </Bar>
+        );
+      })}
       {data.map(data => {
-      return (
-        // <Column>
-          // <Bar percentage={Math.round(((data.amount / max) * 100))} />
-          <Label>{data.day}</Label>
-        // </Column>
-      )
-    })}
+        return <Day>{data.day}</Day>;
+      })}
     </Container>
-  )
+  );
 };
 
 export { Chart };

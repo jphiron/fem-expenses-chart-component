@@ -3,7 +3,7 @@ import { Chart } from "../Chart/Chart";
 
 const Container = styled.main`
   background-color: hsl(33, 100%, 98%);
-  padding: 1.5rem 1.5rem 2.5rem;
+  padding: 1.5rem 1.5rem 2rem;
   display: flex;
   flex-flow: column nowrap;
   width: 100%;
