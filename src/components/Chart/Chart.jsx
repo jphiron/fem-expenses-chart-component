@@ -50,8 +50,8 @@ const Bar = styled.div`
   transition: all .15s ease-out;
 
   &:hover {
-    background-color: ${({ percentage }) =>
-    percentage === 100 ? "hsl(186, 34%, 75%)" : "hsl(10, 79%, 75%)"};
+    background-color: ${({ dotw }) =>
+    dotw === currentDotw ? "hsl(186, 34%, 75%)" : "hsl(10, 79%, 75%)"};
 
     & ${Amount} {
       opacity: 1;
