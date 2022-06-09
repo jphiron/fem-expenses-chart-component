@@ -77,7 +77,6 @@ const Chart = () => {
     arr.forEach(obj => {
       amounts.push(obj.amount);
     });
-    console.log(amounts);
     setMax(Math.max(...amounts));
   };
 
@@ -89,7 +88,6 @@ const Chart = () => {
       }
     });
     let json = await res.json();
-    console.log(json);
     setData(json);
   };
 
@@ -103,7 +101,6 @@ const Chart = () => {
 
   useEffect(() => {
     currentDotw = weekdayNumbers[new Date().getDay()];
-    console.log(currentDotw);
   }, [])
 
   return (
