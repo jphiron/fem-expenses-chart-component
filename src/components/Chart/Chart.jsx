@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 
+let currentDotw;
+
 const Container = styled.div`
   height: 175px;
   display: grid;
@@ -29,7 +31,7 @@ const Amount = styled.span`
   transition: all .15s;
 
   @media screen and (max-width: 460px) {
-    top: -2.25rem;
+    top: -2rem;
     font-size: .8rem;
   }
 `;
@@ -39,8 +41,8 @@ const Bar = styled.div`
   justify-content: center;
   height: ${({ percentage }) => `calc(${percentage}%)`};
   width: 100%;
-  background-color: ${({ percentage }) =>
-    percentage === 100 ? "hsl(186, 34%, 60%)" : "hsl(10, 79%, 65%)"};
+  background-color: ${({ dotw }) =>
+    dotw === currentDotw ? "hsl(186, 34%, 60%)" : "hsl(10, 79%, 65%)"};
   border-radius: 5px;
   cursor: pointer;
   position: relative;
@@ -65,6 +67,10 @@ const Day = styled.span`
 const Chart = () => {
   const [data, setData] = useState([]);
   const [max, setMax] = useState(0);
+  // const [currentDotw,] = useState(new Date().getDay());
+
+  const daysOfTheWeek = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+  const weekdayNumbers = [6, 0, 1, 2, 3, 4, 5];
 
   const getAmounts = arr => {
     let amounts = [];
@@ -76,7 +82,12 @@ const Chart = () => {
   };
 
   const fetchData = async () => {
-    let res = await fetch("./data.json");
+    let res = await fetch("./data.json", {
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    });
     let json = await res.json();
     console.log(json);
     setData(json);
@@ -90,17 +101,22 @@ const Chart = () => {
     getAmounts(data);
   }, [data]);
 
+  useEffect(() => {
+    currentDotw = weekdayNumbers[new Date().getDay()];
+    console.log(currentDotw);
+  }, [])
+
   return (
     <Container>
-      {data.map(data => {
+      {data.map((data, i) => {
         return (
-          <Bar percentage={Math.round((data.amount / max) * 100)}>
-            <Amount>£{data.amount}</Amount>
+          <Bar dotw={i} key={`${daysOfTheWeek[i]}-bar`} percentage={Math.round((data.amount / max) * 100)}>
+            <Amount key={`${daysOfTheWeek[i]}-amount`}>£{data.amount}</Amount>
           </Bar>
         );
       })}
-      {data.map(data => {
-        return <Day>{data.day}</Day>;
+      {data.map((data, i) => {
+        return <Day key={`${daysOfTheWeek[i]}-label`}>{data.day}</Day>;
       })}
     </Container>
   );
