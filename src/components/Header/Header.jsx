@@ -35,7 +35,9 @@ const Header = () => {
         <h2>My balance</h2>
         <div>£921.48</div>
       </Text>
-      <Logo src={LogoImg} alt="Expenses chart logo"/>
+      <h1>
+        <Logo src={LogoImg} alt="Expenses chart"/>
+      </h1>
     </Container>
   )
 }

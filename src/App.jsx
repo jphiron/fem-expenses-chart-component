@@ -5,7 +5,6 @@ import { Main } from './components/Main/Main';
 function App() {
   return (
     <div className="App">
-      <h1 class="sr-only">Expenses Chart Component</h1>
       <Header/>
       <Main/>
     </div>
