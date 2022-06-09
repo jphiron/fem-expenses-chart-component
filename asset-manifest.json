@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/fem-expenses-chart-component/static/css/main.13ad8ba8.css",
-    "main.js": "/fem-expenses-chart-component/static/js/main.0e6dc625.js",
+    "main.css": "/fem-expenses-chart-component/static/css/main.fe088d48.css",
+    "main.js": "/fem-expenses-chart-component/static/js/main.ac575c19.js",
     "index.html": "/fem-expenses-chart-component/index.html",
     "static/media/logo.svg": "/fem-expenses-chart-component/static/media/logo.99d5b9138a1a64cc6858cdac9a9d3bd4.svg",
-    "main.13ad8ba8.css.map": "/fem-expenses-chart-component/static/css/main.13ad8ba8.css.map",
-    "main.0e6dc625.js.map": "/fem-expenses-chart-component/static/js/main.0e6dc625.js.map"
+    "main.fe088d48.css.map": "/fem-expenses-chart-component/static/css/main.fe088d48.css.map",
+    "main.ac575c19.js.map": "/fem-expenses-chart-component/static/js/main.ac575c19.js.map"
   },
   "entrypoints": [
-    "static/css/main.13ad8ba8.css",
-    "static/js/main.0e6dc625.js"
+    "static/css/main.fe088d48.css",
+    "static/js/main.ac575c19.js"
   ]
 }
