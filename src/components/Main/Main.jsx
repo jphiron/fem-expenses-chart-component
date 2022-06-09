@@ -7,7 +7,7 @@ const Container = styled.main`
   display: flex;
   flex-flow: column nowrap;
   width: 100%;
-  border-radius: 10px;
+  border-radius: 15px;
 
   @media screen and (max-width: 440px) {
     padding: 1rem;

@@ -8,7 +8,7 @@ const Container = styled.header`
   background-color: hsl(10, 79%, 65%);
   color: hsl(33, 100%, 98%);
   padding: 1.5rem;
-  border-radius: 10px;
+  border-radius: 15px;
   margin-bottom: 1rem;
 `;
 
