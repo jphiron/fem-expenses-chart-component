@@ -77,6 +77,7 @@ const Main = () => {
       </Text>
       <Chart/>
       <Bottom>
+        <h2 class="sr-only">This month's stats:</h2>
         <Total>
           <TotalLabel>Total this month</TotalLabel>
           <TotalValue>£478.33</TotalValue>
