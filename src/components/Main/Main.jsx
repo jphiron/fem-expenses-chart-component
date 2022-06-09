@@ -37,9 +37,10 @@ const Total = styled.section`
   flex-flow: column nowrap;
 `
 
-const TotalLabel = styled.span`
+const TotalLabel = styled.h3`
   font-size: .9rem;
   color: hsl(28, 10%, 53%);
+  font-weight: normal;
 `
 
 const TotalValue = styled.span`
@@ -62,9 +63,10 @@ const PercentageValue = styled.span`
   font-weight: 700;
 `
 
-const PercentageLabel = styled.span`
+const PercentageLabel = styled.h3`
   font-size: .9rem;
   color: hsl(28, 10%, 53%);
+  font-weight: normal;
 `
 
 const Main = () => {
